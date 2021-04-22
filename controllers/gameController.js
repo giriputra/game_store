@@ -2,14 +2,23 @@ const { Game } = require('../models')
 
 class Controller {
     static getAddGame(req, res) {
-        res.send('bla')
+        res.render ('gameAdd')
     }
 
     static getAllGames(req, res) {
-        Game.findAll()
-            .then(games => {
-                res.render('g')
-            })
+        // Game.findAll()
+        //     .then(games => {
+        //         res.render ('gameMain')
+        //     })
+        res.render ('gameMainAdmin')
+    }
+
+    static getAllGamesUser(req, res) {
+        // Game.findAll()
+        //     .then(games => {
+        //         res.render ('gameMain')
+        //     })
+        res.render ('gameMainUser')
     }
 }
 
