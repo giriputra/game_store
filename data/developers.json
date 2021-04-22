@@ -1,18 +1,18 @@
 [
     {
-        "name": "Valve",
-        "headquarters": "Washington"
+        "name": "Giri",
+        "nationality": "Indonesia"
     },
     {
-        "name": "Epic Games",
-        "headquarters": "North Carolina"
+        "name": "Rina",
+        "nationality": "Indonesia"
     },
     {
-        "name": "Indie Dev",
-        "headquarters": "Poland"
+        "name": "Kirakira",
+        "nationality": "Japan"
     },
     {
-        "name": "Miniclip",
-        "headquarters": "England"
+        "name": "Jeff Bezos",
+        "nationality": "USA"
     }
 ]

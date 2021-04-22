@@ -18,7 +18,6 @@ module.exports = (sequelize, DataTypes) => {
   GameDeveloper.init({
     DeveloperId: DataTypes.INTEGER,
     GameId: DataTypes.INTEGER,
-    amountSold: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'GameDeveloper',

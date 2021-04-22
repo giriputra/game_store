@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>
+        <%=quote%>
+    </h1>
+    <table border=1>
+        <tr>
+            <th>Name</th>
+            <th>Nationality</th>
+            <th>Games Developed</th>
+            <th>Game Total Worth</th>
+        </tr>
+        <%developers.forEach(e=> {%>
+            <tr>
+                <td>
+                    <%=e.name%>
+                </td>
+                <td>
+                    <%=e.nationality%>
+                </td>
+                <td>
+                    <% let names=e.Games.map(el=> el.name) %>
+                        <%= names %>
+                </td>
+                <td>
+                    <% let gameTotal=e.Games.map(el=> el.gameWorth()) %>
+                        <%= getRupiah(gameTotal.reduce((a,b)=> a + b,0)) %>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form method="post" action='/games/add'>
+        <label for="name">Name</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="price">Price</label><br>
+        <input type="text" id="price" name="price"><br>
+        <label for="genre">Genre</label><br>
+        <input type="text" id="genre" name="genre"><br>
+        <label for="developers">Main developer</label><br>
+        <select name="DeveloperId" id="developers">
+            <% developers.forEach(e=> { %>
+                <option value="<%=e.id%>">
+                    <%=e.name%>
+                </option>
+                <% }) %>
+        </select><br>
+        <label for="image">Image Link</label><br>
+        <input type="text" id="image" name="image"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>
