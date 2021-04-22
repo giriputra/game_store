@@ -15,8 +15,9 @@ module.exports = (sequelize, DataTypes) => {
       Developer.hasMany(models.GameDeveloper)
     }
 
-    static quote(number) {
-      switch (number) {
+    static quote() {
+      let generateNumber = Math.round(Math.random() * 5)
+      switch (generateNumber) {
         case 1:
           return `I love coding.`
         case 2:

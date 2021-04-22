@@ -1,49 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+<%- include ( 'partials/partialHead' ) %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <body>
+        <%- include ( 'partials/partialHeader' ) %>
+            <main>
+                <div id="content">
+                    <article class="card">
+                        <center>
+                            <h2>Game</h2>
+                        </center>
 
-<body>
-    <table border=1>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Genre</th>
-            <th>Developer</th>
-            <th>Amount Sold</th>
-            <th>Actions</th>
-        </tr>
-        <%games.forEach(e=> {%>
-            <tr>
-                <td>
-                    <%=e.name%>
-                </td>
-                <td>
-                    <%=getRupiah(e.checkPrice())%>
-                </td>
-                <td>
-                    <%=e.genre%>
-                </td>
-                <td>
-                    <% e.Developers.forEach(el=> { %>
-                        <%= `${el.name}` %>
-                            <% })%>
-                </td>
-                <td>
-                    <%=e.amountSold%>
-                </td>
-                <td>
-                    <a href="/games/<%= e.id%>/buy">Buy</a><a href="games/<%= e.id%>/add_developer">Add Developer</a><a
-                        href="/games/<%= e.id%>/delete">Delete</a>
-                </td>
-            </tr>
-            <% }) %>
-    </table>
-</body>
+                        <table border="1" class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Genre</th>
+                                    <th>Developer</th>
+                                    <th>Amount Sold</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%games.forEach(e=> {%>
+                                    <tr>
+                                        <td>
+                                            <%=e.name%>
+                                        </td>
+                                        <td>
+                                            <%=getRupiah(e.checkPrice())%>
+                                        </td>
+                                        <td>
+                                            <%=e.genre%>
+                                        </td>
+                                        <td>
+                                            <% let names=e.Developers.map(el=> el.name) %>
+                                                <%= names%>
+                                        </td>
+                                        <td>
+                                            <%=e.amountSold%>
+                                        </td>
+                                        <td><a href="/games/<%= e.id%>/buy" class="btn btn-primary">Buy</a></td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+
+                    </article>
+                </div>
+            </main>
+            <%- include ( 'partials/partialFooter' , {quote} ) %>
+    </body>
 
 </html>

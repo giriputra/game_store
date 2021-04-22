@@ -2,12 +2,12 @@ const { Game, Developer, GameDeveloper } = require('../models')
 const getRupiah = require('../helpers/getRupiah')
 const tweet = require('../helpers/tweet')
 
-
 class Controller {
     static getAllGames(req, res) {
         Game.findAll({ include: [Developer] })
             .then(games => {
-                res.render('gameMain', { games, getRupiah })
+                let quote = Developer.quote()
+                res.render('gameMain', { games, getRupiah, quote })
             })
             .catch(err => res.send(err))
     }
@@ -15,7 +15,8 @@ class Controller {
     static getAddGame(req, res) {
         Developer.findAll()
             .then(developers => {
-                res.render('gameAdd', { developers })
+                let quote = Developer.quote()
+                res.render('gameAdd', { developers, quote })
             })
             .catch(err => res.send(err))
     }
@@ -35,7 +36,7 @@ class Controller {
             })
             .then((gameDev) => {
                 tweet(gameDev)
-                res.redirect('/games')
+                res.redirect('/games/admin')
             })
             .catch(err => res.send(err))
     }
@@ -54,7 +55,7 @@ class Controller {
         const DeveloperId = +req.body.DeveloperId
         const createLink = { GameId, DeveloperId }
         GameDeveloper.create(createLink, { isNewRecord: true })
-            .then(() => res.redirect('/games'))
+            .then(() => res.redirect('/games/admin'))
             .catch(err => res.send(err))
     }
 
@@ -72,9 +73,18 @@ class Controller {
         const Id = +req.params.id
         Game.destroy({ where: { id: Id } })
             .then(() => {
-                res.redirect('/games')
+                res.redirect('/games/admin')
             })
             .catch(err => res.send(err));
+    }
+
+    static getAdmin(req, res) {
+        Game.findAll({ include: [Developer] })
+            .then(games => {
+                let quote = Developer.quote()
+                res.render('gameMainAdmin', { games, getRupiah, quote })
+            })
+            .catch(err => res.send(err))
     }
 }
 

@@ -8,11 +8,19 @@
         "nationality": "Indonesia"
     },
     {
-        "name": "Kirakira",
+        "name": "Kira",
         "nationality": "Japan"
     },
     {
-        "name": "Jeff Bezos",
+        "name": "Jeff",
         "nationality": "USA"
+    },
+    {
+        "name": "Elon",
+        "nationality": "USA"
+    },
+    {
+        "name": "Red Velvet",
+        "nationality": "Korea"
     }
 ]

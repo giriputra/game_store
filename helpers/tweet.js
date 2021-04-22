@@ -1,4 +1,5 @@
 let Twit = require('twit')
+let getRupiah = require('./getRupiah')
 
 let T = new Twit({
     consumer_key: 'JAFlBJMrrKnFdlRjIeZRrQ9Cj',
@@ -13,7 +14,7 @@ const tweet = (content) => {
     let newTweet = `
     A new game has been added to Game Store PP!!!
     Name: ${content.name}
-    Price: ${content.price}
+    Price: ${getRupiah(content.price)}
     Genre: ${content.genre}
     ${content.image}
     <-LINK TO WEBSITE->
