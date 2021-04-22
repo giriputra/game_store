@@ -4,7 +4,7 @@ const gameRouter = require('./gameRouter')
 const developerRouter = require('./developerRouter')
 
 router.get('/', (req, res) => {
-    res.send('home page')
+    res.render('homePage')
 })
 
 router.use('/games', gameRouter)

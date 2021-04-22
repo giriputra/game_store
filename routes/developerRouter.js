@@ -1,9 +1,7 @@
 const router = require('express').Router();
 const Controller = require('../controllers/developerController')
 
-router.get('/', (req, res) => {
-    res.send('hello world from developer router.')
-})
+router.get('/', Controller.getDevelopers)
 
 
 module.exports = router

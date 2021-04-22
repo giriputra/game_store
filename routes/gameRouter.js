@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const Controller = require('../controllers/gameController')
 
-router.get('/', (req, res) => {
-    res.send('hello world from game router.')
-})
+router.get('/', Controller.getAllGames)
+
+router.get('/add', Controller.getAddGame)
+// router.post('/add', Controller.postAddGame)
+
 
 module.exports = router
