@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ( 'partials/partialHead' ) %>
+
+    <body>
+        <%- include ( 'partials/partialHeader' ) %>
+            <main>
+                <div class=private-slider>
+                    <div class=isi-slider>
+                        <%games.forEach(e=> {%>
+                            <img src="<%=e.image%>">
+                            <%})%>
+                    </div>
+                </div>
+            </main>
+    </body>
+
+</html>

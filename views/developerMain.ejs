@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ( 'partials/partialHead' ) %>
+
+    <body>
+        <%- include ( 'partials/partialHeader' ) %>
+            <main>
+                <div id="content">
+                    <article class="card">
+                        <center>
+                            <h2>The Developers</h2>
+                        </center>
+
+                        <table border="1" class="table table-dark table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Nationality</th>
+                                    <th>Games Developed</th>
+                                    <th>Game Total Worth</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%developers.forEach(e=> {%>
+                                    <tr>
+                                        <td>
+                                            <%=e.name%>
+                                        </td>
+                                        <td>
+                                            <%=e.nationality%>
+                                        </td>
+                                        <td>
+                                            <% let names=e.Games.map(el=> el.name) %>
+                                                <%= names %>
+                                        </td>
+                                        <td>
+                                            <% let gameTotal=e.Games.map(el=> el.gameWorth()) %>
+                                                <%= getRupiah(gameTotal.reduce((a,b)=> a + b,0)) %>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                        </table>
+
+                    </article>
+                </div>
+            </main>
+            <%- include ( 'partials/partialFooter' , {quote} ) %>
+    </body>
+
+</html>

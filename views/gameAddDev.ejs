@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ( 'partials/partialHead' ) %>
+
+    <body>
+        <%- include ( 'partials/partialHeader' ) %>
+            <main>
+                <div id="content">
+                    <article class="card">
+                        <h2>Add Another Developer</h2>
+                        <form method="post" action='/games/<%= GameId %>/add_developer'>
+                            <label for="developers">Name</label><br>
+                            <select name="DeveloperId" id="developers">
+                                <% developers.forEach(e=> { %>
+                                    <option value="<%=e.id%>">
+                                        <%=e.name%>
+                                    </option>
+                                    <% }) %>
+                            </select><br><br>
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                        </form>
+                    </article>
+                </div>
+            </main>
+    </body>
+
+</html>

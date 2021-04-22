@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include ( 'partials/partialHead' ) %>
+
+    <body>
+        <%- include ( 'partials/partialHeader' ) %>
+            <main>
+                <div id="content">
+                    <article class="card">
+                        <h2>Add Game</h2>
+                        <form method="post" action='/games/add'>
+                            <div class="form-group">
+                                <label for="name">Name :</label>
+                                <input type="text" class="form-control" id="name" name="name"><br>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price :</label>
+                                <input type="number" class="form-control" id="price" name="price"><br>
+                            </div>
+                            <div class="form-group">
+                                <label for="genre">Genre :</label>
+                                <input type="text" class="form-control" id="genre" name="genre"><br>
+                            </div>
+                            <div class="form-group">
+                                <label for="sel1">Main Developer :</label>
+                                <select name="DeveloperId" class="form-control" id="sel1">
+                                    <% developers.forEach(e=> { %>
+                                        <option value="<%=e.id%>">
+                                            <%=e.name%>
+                                        </option>
+                                        <% }) %>
+                                </select><br>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Image Link :</label>
+                                <input type="text" class="form-control" id="image" name="image">
+                            </div><br>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </article>
+                </div>
+            </main>
+            <%- include ( 'partials/partialFooter' , {quote} ) %>
+    </body>
+
+</html>
