@@ -17,7 +17,7 @@ const tweet = (content) => {
     Price: ${getRupiah(content.price)}
     Genre: ${content.genre}
     ${content.image}
-    <-LINK TO WEBSITE->
+    https://game-store-pp.herokuapp.com/
     Developed with love by: ${content.Developers[0].name}
     `
 
